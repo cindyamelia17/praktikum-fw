@@ -32,13 +32,13 @@
 
         <a href="{{ route('products.export-excel')}}">
           <button class="px-6 py-4 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
-              Ekspor ke Excel
+              Eksport ke Excel
           </button>
         </a>
         
         <a href="{{ route('products.export-pdf')}}">
           <button class="px-6 py-4 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
-              Ekspor ke PDF
+              Eksport ke PDF
           </button>
         </a>
 
