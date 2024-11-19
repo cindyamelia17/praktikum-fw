@@ -26,14 +26,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('dashboard');
 
 
-Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product', [ProductController::class, 'index'])->name("product-index");
 Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
 Route::post('/product', [ProductController::class, 'store'])->name("product-store");
-Route::get('/product/{id}', [ProductController::class, 'show']);
-Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
-Route::put('/product/{id}', [ProductController::class, 'update']);
-Route::delete('/product/{id}', [ProductController::class, 'destory']);
-
+Route::get('/product/{id}', [ProductController::class, 'show'])->name("product-detail");
+Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name("product-edit");
+Route::put('/product/{id}', [ProductController::class, 'update'])->name("product-update");
+Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name("product-deleted");
+Route::get('/products/export-excel', [ProductController::class, 'exportExcel'])->name('products.export-excel');
+Route::get('/products/export-pdf', [ProductController::class, 'exportPDF'])->name('products.export-pdf');
 
 Route::get('/supplier', [SupplierController::class, 'index']);
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name("supplier-create");
