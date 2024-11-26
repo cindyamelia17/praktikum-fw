@@ -85,7 +85,8 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = product::findorFail($id);
-        return view ("master-data.product-master.edit-product", compact('product'));
+        $suppliers = Supplier::all();
+        return view ("master-data.product-master.edit-product", compact('product', 'suppliers'));
     }
 
     /**
@@ -100,6 +101,7 @@ class ProductController extends Controller
             'information' => 'nullable|string',
             'qty' => 'required|integer|min:1',
             'producer' => 'required|string|max:255',
+            'supplier_id' => 'exists:suppliers,id', // Validasi foreign key
         ]);
 
         $products = product::findorFail($id);
@@ -110,6 +112,7 @@ class ProductController extends Controller
             'information' => $request->information,
             'qty' => $request->qty,
             'producer' => $request->producer,
+            'supplier_id' => $request->supplier_id,
 
         ]);
 
